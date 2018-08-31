@@ -10,9 +10,13 @@ export class App {
     this.initRoutes();
   }
 
+<<<<<<< HEAD
   setup() {
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded());
+=======
+  setup() { 
+>>>>>>> master
     this.app.set("scripts", "./src/ts");
     this.app.set("views", "./src/views");
     this.app.set("view engine", "pug");
