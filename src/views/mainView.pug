@@ -8,32 +8,7 @@ html(lang="en")
     body(class="container")
     h1 Welcome to the fitness app!
     main
-        div Add your workout schedule here!
-        hr
-        div
-            form(id="form" )
-                div(class="form-group")
-                    label(for="exercise") Exercise name
-                    input(type="text" class="form-control" id="exercise" placeholder="Enter a new exercise name" )
-                    label(for="description") Exercise description
-                    input(type="text" class="form-control" id="description" placeholder="Description" )
-                    label(for="reps") nr of reps
-                    input(type="number" class="form-control" id="reps" placeholder="reps" )
-                    input(type="submit" class="btn btn-primary" ) 
-        hr
-        h1.display-3 Current exercise schema
-        table.table
-            thead
-                tr
-                    th Exercise
-                    th reps
-                    th description
-            tbody
-                - for (let i of fitnessItems)
-                    tr
-                        th= i.name
-                        th= i.reps
-                        th= i.description
+        block content
 
 
 
