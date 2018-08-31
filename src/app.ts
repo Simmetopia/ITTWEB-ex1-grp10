@@ -1,6 +1,8 @@
 import { Application, Router } from "express";
 import { success } from "log-symbols";
 import { Fitness } from "./routes/fitness";
+import bodyParser from 'body-parser';
+
 export class App {
 
   constructor(private app: Application) {
@@ -8,7 +10,9 @@ export class App {
     this.initRoutes();
   }
 
-  setup() { 
+  setup() {
+    this.app.use(bodyParser.json());
+    this.app.use(bodyParser.urlencoded());
     this.app.set("scripts", "./src/ts");
     this.app.set("views", "./src/views");
     this.app.set("view engine", "pug");
