@@ -1,0 +1,26 @@
+{
+  "name": "pug",
+  "version": "0.0.1",
+  "description": "a pug site",
+  "main": "index.ts",
+  "author": "Simon Bundgaard-Egeberg",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon ts-node index.ts"
+  },
+  "dependencies": {
+    "@types/log-symbols": "^2.0.0",
+    "express": "^4.16.3",
+    "log-symbols": "^2.2.0",
+    "nodemon": "^1.18.4",
+    "pug": "^2.0.3",
+    "ts-node": "^7.0.1",
+    "ts-node-dev": "^1.0.0-pre.26"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/node": "^10.9.3",
+    "@types/pug": "^2.0.4",
+    "typescript": "^3.0.3"
+  }
+}
