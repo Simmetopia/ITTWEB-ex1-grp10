@@ -11,11 +11,12 @@ export class Fitness {
   }
 
   mainView(request: Request, response: Response) {
-    response.render("mainView", { name: "Yeah boi", fitnessItems: data });
+    response.render("content", { name: "Yeah boi", fitnessItems: data });
   }
 
   submit(request: Request, response: Response) {
-    console.log(request.body());
+    console.log(request.body);
+    response.status(200).json(request.body);
   }
 
   initRoutes() {
