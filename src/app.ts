@@ -8,7 +8,7 @@ export class App {
     this.initRoutes();
   }
 
-  setup() {
+  setup() { 
     this.app.set("scripts", "./src/ts");
     this.app.set("views", "./src/views");
     this.app.set("view engine", "pug");

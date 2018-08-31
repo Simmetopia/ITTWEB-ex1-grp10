@@ -6,7 +6,7 @@
   "author": "Simon Bundgaard-Egeberg",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon ts-node index.ts"
+    "start": "ts-node-dev src/index.ts"
   },
   "dependencies": {
     "@types/log-symbols": "^2.0.0",
