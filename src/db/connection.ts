@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { ConnectionOptions } from "mongoose";
 
 const connectionString = {
   cloud:
@@ -6,8 +6,13 @@ const connectionString = {
   local: "mongodb://localhost:27017/Fitness"
 };
 
+const connectopnOptions: ConnectionOptions = {
+  useNewUrlParser: true
+};
+
 mongoose.connect(
   connectionString.cloud,
+  connectopnOptions,
   error => {
     if (error) {
       // do something

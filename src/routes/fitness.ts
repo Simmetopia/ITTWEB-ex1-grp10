@@ -1,6 +1,4 @@
 import { Router, Request, Response } from "express";
-import { data } from "../ts/formSubmit";
-import { ExerciseModel } from "../db/models/exercise.model";
 import { FitnessController } from "../controllers/fitnessController";
 
 export class Fitness {
