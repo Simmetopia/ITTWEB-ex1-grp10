@@ -8,3 +8,8 @@ interface AppSchema {
 export const AppSchema: AppSchema = {
   exercises: exerciseModel
 };
+
+setTimeout(() => {
+  console.log(1)
+}, 0);
+console.log(2)

@@ -2,11 +2,15 @@
   "name": "pug",
   "version": "0.0.1",
   "description": "a pug site",
-  "main": "index.ts",
+  "engines": {
+    "node": "^10.9.0",
+    "yarn": "^1.9.4"
+  },
   "author": "Simon Bundgaard-Egeberg",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node-dev src/index.ts"
+    "start:dev": "ts-node-dev src/index.ts",
+    "start": "ts-node src/index.ts"
   },
   "dependencies": {
     "@types/log-symbols": "^2.0.0",

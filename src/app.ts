@@ -1,7 +1,9 @@
-import { Application, Router } from "express";
+import express, { Application, Router } from "express";
+import path from "path";
 import { success } from "log-symbols";
 import { Fitness } from "./routes/fitness";
 import bodyParser from "body-parser";
+import { serveStatic } from "serve-static";
 
 export class App {
   constructor(private app: Application) {
@@ -25,6 +27,7 @@ export class App {
   };
 
   initRoutes() {
+    this.app.use(express.static(path.join(__dirname, "/css")));
     this.app.use("/app", new Fitness(Router()).Router);
   }
 }
