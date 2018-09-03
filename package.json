@@ -12,7 +12,7 @@
     "start:dev": "ts-node-dev src/index.ts",
     "build": "rimraf build && yarn tsc",
     "start": "node build/index.js",
-    "prestart": "yarn tsc"
+    "postinstall": "yarn tsc"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
