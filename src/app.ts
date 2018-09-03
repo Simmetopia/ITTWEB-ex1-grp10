@@ -1,4 +1,5 @@
 import express, { Application, Router } from "express";
+import forceSSL from "force-ssl-heroku";
 import path from "path";
 import { success } from "log-symbols";
 import { Fitness } from "./routes/fitness";
@@ -7,6 +8,7 @@ import { serveStatic } from "serve-static";
 
 export class App {
   constructor(private app: Application) {
+    this.app.use(forceSSL);
     this.setup();
     this.initRoutes();
   }
@@ -28,6 +30,6 @@ export class App {
 
   initRoutes() {
     this.app.use(express.static(path.join(__dirname, "/css")));
-    this.app.use("/app", new Fitness(Router()).Router);
+    this.app.use("/", new Fitness(Router()).Router);
   }
 }
