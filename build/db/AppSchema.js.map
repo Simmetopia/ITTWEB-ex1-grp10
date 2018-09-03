@@ -1,0 +1,1 @@
+{"version":3,"file":"AppSchema.js","sourceRoot":"","sources":["../../src/db/AppSchema.ts"],"names":[],"mappings":";;;;;AACA,6EAAuE;AAM1D,QAAA,SAAS,GAAc;IAClC,SAAS,EAAE,wBAAa;CACzB,CAAC;AAEF,UAAU,CAAC,GAAG,EAAE;IACd,OAAO,CAAC,GAAG,CAAC,CAAC,CAAC,CAAA;AAChB,CAAC,EAAE,CAAC,CAAC,CAAC;AACN,OAAO,CAAC,GAAG,CAAC,CAAC,CAAC,CAAA"}

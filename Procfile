@@ -1,1 +1,1 @@
-web: yarn ts-node src/index.ts
+web: yarn node build/index.js

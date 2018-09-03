@@ -1,5 +1,3 @@
-declare module "force-ssl-heroku";
-
 import express, { Application, Router } from "express";
 import forceSSL from "force-ssl-heroku";
 import path from "path";
