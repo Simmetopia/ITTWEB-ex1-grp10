@@ -1,9 +1,21 @@
 import Model, { ExerciseModel, Exercise } from "../db/models/exercise.model";
+import { ProgramModel, Program } from "../db/models/program.model";
 
 export class FitnessController {
-  static async addOneExercise(exer: Exercise): Promise<AddOneExerciseResponse> {
+
+  static async addNewProgram(request: Program) {
+    // ALA do some nice shit here! When you save the Program/Workout it
+    // should save all the newly created exercises associated to the program/workout
+    return {};
+  }
+
+  static async updateProgram(programId: string, request: Partial<Program>) {
+    return {};
+  }
+
+  static async addOneExercise(request: Exercise): Promise<AddOneExerciseResponse> {
     try {
-      const newExercise = new Model(exer);
+      const newExercise = new Model(request);
       const exercise: ExerciseModel = await newExercise.save();
       return { message: "Saved Exercise", exercise };
     } catch {
