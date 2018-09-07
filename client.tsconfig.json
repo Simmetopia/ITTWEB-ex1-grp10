@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["./src/client/**/*"],
+  "compilerOptions": {
+    "module": "es2015",
+    "lib": ["esnext", "dom"],
+    "target": "es5"
+  }
+}
