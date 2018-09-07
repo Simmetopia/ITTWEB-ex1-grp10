@@ -11,13 +11,13 @@ export class App {
     this.initRoutes();
   }
 
-  public startServer = (port?: number) => {
+  public startServer(port?: number) {
     const PORT = port || process.env.PORT || 1337;
     this.app.listen(PORT, () => {
       // tslint:disable-next-line:no-console
       console.log(success + ' Server is listening on port: ' + PORT);
     });
-  };
+  }
 
   private setup() {
     this.app.use(bodyParser.json());

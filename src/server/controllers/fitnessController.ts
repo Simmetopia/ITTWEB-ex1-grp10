@@ -1,9 +1,9 @@
 import { AppSchema } from '../db/AppSchema';
-import Model, { Exercise, ExerciseModel } from '../db/models/exercise.model';
-import { Program } from '../db/models/program.model';
+import exerciseModel, { IExercise, IExerciseModel } from '../db/models/exercise.model';
+import { IProgram } from '../db/models/program.model';
 
 export class FitnessController {
-  public static async addNewProgram(request: Program) {
+  public static async addNewProgram(request: IProgram) {
     try {
       return AppSchema.programs.create(request);
     } catch (error) {
@@ -11,7 +11,7 @@ export class FitnessController {
     }
   }
 
-  public static async updateProgram(programId: string, request: Partial<Program>) {
+  public static async updateProgram(programId: string, request: Partial<IProgram>) {
     try {
       return AppSchema.programs.findByIdAndUpdate(programId, request).exec();
     } catch (error) {
@@ -19,19 +19,19 @@ export class FitnessController {
     }
   }
 
-  public static async addOneExercise(request: Exercise): Promise<AddOneExerciseResponse> {
+  public static async addOneExercise(request: IExercise): Promise<IAddOneExerciseResponse> {
     try {
-      const newExercise = new Model(request);
-      const exercise: ExerciseModel = await newExercise.save();
+      const newExercise = new exerciseModel(request);
+      const exercise: IExerciseModel = await newExercise.save();
       return { message: 'Saved Exercise', exercise };
     } catch {
       return { message: 'WTF!', exercise: null };
     }
   }
 
-  public static async getExercises(): Promise<GetExerciseResponse> {
+  public static async getExercises(): Promise<IGetExerciseResponse> {
     try {
-      const exerciseDocs = await Model.find();
+      const exerciseDocs = await exerciseModel.find();
       if (exerciseDocs) {
         return {
           exercises: exerciseDocs,
@@ -52,12 +52,12 @@ export class FitnessController {
   }
 }
 
-interface GetExerciseResponse {
+interface IGetExerciseResponse {
   message: string;
-  exercises: ExerciseModel[];
+  exercises: IExerciseModel[];
 }
 
-export interface AddOneExerciseResponse {
+export interface IAddOneExerciseResponse {
   message: string;
-  exercise: ExerciseModel | null;
+  exercise: IExerciseModel | null;
 }

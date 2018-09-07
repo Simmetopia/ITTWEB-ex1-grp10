@@ -1,13 +1,13 @@
 import { Model } from 'mongoose';
-import exerciseModel, { ExerciseModel } from './models/exercise.model';
-import programModel, { ProgramModel } from './models/program.model';
+import exerciseModel, { IExerciseModel } from './models/exercise.model';
+import programModel, { IProgramModel } from './models/program.model';
 
-interface AppSchema {
-  exercises: Model<ExerciseModel>;
-  programs: Model<ProgramModel>;
+interface IAppSchema {
+  exercises: Model<IExerciseModel>;
+  programs: Model<IProgramModel>;
 }
 
-export const AppSchema: AppSchema = {
+export const AppSchema: IAppSchema = {
   exercises: exerciseModel,
   programs: programModel,
 };

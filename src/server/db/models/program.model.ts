@@ -1,16 +1,16 @@
 import mongoose from '../connection';
-import { exerciseSchema, ExerciseModel } from './exercise.model';
+import { exerciseSchema, IExerciseModel } from './exercise.model';
 
 const programSchema = new mongoose.Schema({
-  name: { type: String, required: true },
   exercises: { type: [exerciseSchema] },
+  name: { type: String, required: true },
 });
 
-export interface Program {
+export interface IProgram {
   name: string;
-  exercises: ExerciseModel[];
+  exercises: IExerciseModel[];
 }
 
-export interface ProgramModel extends mongoose.Document, Program {}
+export interface IProgramModel extends mongoose.Document, IProgram {}
 
-export default mongoose.model<ProgramModel>('Program', programSchema);
+export default mongoose.model<IProgramModel>('Program', programSchema);

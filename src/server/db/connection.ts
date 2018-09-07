@@ -5,17 +5,18 @@ const connectionString = {
   local: 'mongodb://localhost:27017/Fitness',
 };
 
-const connectopnOptions: ConnectionOptions = {
+const connectionOptions: ConnectionOptions = {
   useNewUrlParser: true,
 };
 
 mongoose.connect(
   connectionString.cloud,
-  connectopnOptions,
+  connectionOptions,
   error => {
     if (error) {
       // do something
     } else {
+      // tslint:disable-next-line:no-console
       console.log('Connected to db');
     }
   },

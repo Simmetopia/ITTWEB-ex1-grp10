@@ -1,4 +1,5 @@
-import { Router, Request, Response } from 'express';
+import { Request, Response, Router } from 'express';
+
 import { FitnessController } from '../controllers/fitnessController';
 
 export class Fitness {
@@ -10,12 +11,12 @@ export class Fitness {
     return this.router;
   }
 
-  mainView = async (request: Request, response: Response) => {
+  private mainView = async (request: Request, response: Response) => {
     const { exercises } = await FitnessController.getExercises();
     response.render('content', { name: 'Yeah boi', fitnessItems: exercises });
   };
 
-  submit = async (request: any, response: Response) => {
+  private submit = async (request: any, response: Response) => {
     try {
       const addExercise = await FitnessController.addOneExercise(request.body);
 
@@ -25,7 +26,7 @@ export class Fitness {
     }
   };
 
-  initRoutes() {
+  private initRoutes() {
     this.router.post('/submit', this.submit);
     this.router.use('/', this.mainView);
   }
