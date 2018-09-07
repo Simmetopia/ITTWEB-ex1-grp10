@@ -1,0 +1,61 @@
+extends mainView
+
+block workout 
+
+    h1.display-3 Available workouts:
+
+    table.table
+            thead
+                tr
+                    th Workout
+                    th description
+            tbody
+                - for (let i of workoutItems)
+
+                    tr(id=i.id name="clickableWorkout")
+                        th= i.name
+                        th= i.description
+    div
+        form(id="programForm" )
+            div(class="form-group")
+                div.row
+                    div.col-5
+                        label(for="program_name") Program name
+                        input(type="text" class="form-control" id="program_name" placeholder="Enter a new program name" )
+                    div.col-5
+                        label(for="description") Program description
+                        input(type="text" class="form-control" id="program_description" placeholder="Description" )
+                div(style="display: flex; justify-items:center; align-items: center; flex-direction: column;")
+                    input(type="submit" style="margin-top: 10px; min-width: 30px; width: 20%" class="btn btn-primary" value="ADD NEW" )
+    
+    script.
+        (function(){
+            const programForm = document.getElementById("programForm");
+            programForm.addEventListener('submit', event => {
+            event.preventDefault();
+                        window.fetch('/new', {
+                            method: 'POST',
+                            body: JSON.stringify({
+                            name: document.getElementById("program_name").value,
+                            description: document.getElementById("program_description").value,
+                            exercises: []
+                        }),
+                        headers: {'Content-Type': 'application/json'}
+                        }).then((res)=> {
+                            res.json().then((data)=>{
+                                location.href = "workout/"+data._id ;
+                            }) 
+                        });
+        })
+        })()
+    script.
+        (function() {
+            const documentRef = document.getElementsByName('clickableWorkout');
+            documentRef.forEach(element =>
+                element.addEventListener('click', event => {
+                location.href = `workout/${element.id}`;
+                }),
+            );
+        })()
+
+        

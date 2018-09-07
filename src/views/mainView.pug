@@ -8,7 +8,8 @@ html(lang="en")
     body(class="container")
     h1.display-2 Welcome to the fitness app!
     main
-        block content
+        block exercises
+        block workout
 
 
 
@@ -18,7 +19,7 @@ html(lang="en")
             if (form) {
                 form.addEventListener('submit', event => {
                     event.preventDefault();
-                    window.fetch('/submit', {
+                    window.fetch(location.pathname, {
                         method: 'POST',
                         body: JSON.stringify({
                         name: document.getElementById('exercise').value,
@@ -26,7 +27,8 @@ html(lang="en")
                         repetition: document.getElementById('reps').value
                     }),
                     headers: {'Content-Type': 'application/json'}
-                    });
+                    })
+                    .then(() => location.reload());
                 });
             }
         })();

@@ -1,6 +1,6 @@
 extends mainView
 
-block content 
+block exercises 
     h4 Add your workout schedule here!
         hr
         div
@@ -27,7 +27,7 @@ block content
                     th reps
                     th description
             tbody
-                - for (let i of fitnessItems)
+                - for (let i of fitnessItems.exercises)
                     tr
                         th= i.name
                         th= i.repetition
