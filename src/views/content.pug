@@ -1,0 +1,36 @@
+extends mainView
+
+block content 
+    h4 Add your workout schedule here!
+        hr
+        div
+            form(id="form" )
+                div(class="form-group")
+                    div.row
+                        div.col-5
+                            label(for="exercise") Exercise name
+                            input(type="text" class="form-control" id="exercise" placeholder="Enter a new exercise name" )
+                        div.col-5
+                            label(for="description") Exercise description
+                            input(type="text" class="form-control" id="description" placeholder="Description" )
+                        div.col-2
+                            label(for="reps") nr of reps
+                            input(type="number" class="form-control" id="reps" placeholder="reps" )
+                    div(style="display: flex; justify-items:center; align-items: center; flex-direction: column;")
+                        input(type="submit" style="margin-top: 10px; min-width: 30px; width: 20%" class="btn btn-primary" value="SAVE" ) 
+        hr
+        h1.display-3 Current exercise schema
+        table.table
+            thead
+                tr
+                    th Exercise
+                    th reps
+                    th description
+            tbody
+                - for (let i of fitnessItems)
+                    tr
+                        th= i.name
+                        th= i.repetition
+                        th= i.description
+        script.
+            bundle.addEventListenerToForm();
