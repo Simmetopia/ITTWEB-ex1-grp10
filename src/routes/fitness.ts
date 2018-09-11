@@ -31,7 +31,7 @@ export class Fitness {
   new = async (request: Request, response: Response) =>{
     
     const { message, program }  = await FitnessController.addNewProgram(request.body);
-    response.render("exercises", { name: "Wwworkout", workoutItems: program});
+    response.json(program);
   }
 
   workouts = async (request: Request, response: Response) =>{
